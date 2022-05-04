@@ -1,0 +1,15 @@
+[Unit]
+Description=Tiny RAMDisk Persistence
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+PermissionsStartOnly=true
+ExecStart=+/home/petrstepanov/.local/bin/tiny-ramdisk-startup.sh
+ExecStop=+/home/petrstepanov/.local/bin/tiny-ramdisk-shutdown.sh
+TimeoutStopSec=infinity
+TimeoutStartSec=infinity
+TimeoutSec=infinity
+
+[Install]
+WantedBy=default.target

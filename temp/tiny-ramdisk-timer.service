@@ -1,0 +1,13 @@
+[Unit]
+Description=Tiny RAMDisk Backup Timer Persistence
+After=p3x-ramdisk-petrstepanov.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/petrstepanov/.p3x-ramdisk/p3x-ramdisk.sh timer save
+TimeoutStopSec=infinity
+TimeoutStartSec=infinity
+TimeoutSec=infinity
+
+[Install]
+WantedBy=multi-user.target
