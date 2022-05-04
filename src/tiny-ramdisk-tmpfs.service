@@ -1,5 +1,5 @@
 [Unit]
-Description=Tiny RAMDisk Persistence
+Description=Tiny RAMDisk Persistence (tmpfs)
 
 [Service]
 Type=oneshot
