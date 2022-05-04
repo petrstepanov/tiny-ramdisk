@@ -1,11 +1,11 @@
 [Unit]
-Description=Tiny RAMDisk Persistence (ramfs)
+Description=Tiny RAMDisk Persistence for USER (ramfs)
 
 [Service]
 Type=oneshot
 RemainAfterExit=true
-ExecStart=/usr/bin/tiny-ramdisk-ramfs-startup-USER.sh
-ExecStop=/usr/bin/tiny-ramdisk-ramfs-shutdown-USER.sh
+ExecStart=/usr/bin/tiny-ramdisk-ramfs-startup.sh
+ExecStop=/usr/bin/tiny-ramdisk-ramfs-shutdown.sh
 
 [Install]
 WantedBy=default.target

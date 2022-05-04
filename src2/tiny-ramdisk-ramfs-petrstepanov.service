@@ -1,12 +1,11 @@
 [Unit]
-Description=Tiny RAMDisk Persistence (ramfs)
+Description=Tiny RAMDisk Persistence for petrstepanov (ramfs)
 
 [Service]
 Type=oneshot
 RemainAfterExit=true
-ExecStart=/usr/bin/tiny-ramdisk-ramfs-startup-petrstepanov.sh
-ExecStop=/usr/bin/tiny-ramdisk-ramfs-shutdown-petrstepanov.sh
+ExecStart=/usr/bin/tiny-ramdisk-ramfs-startup.sh
+ExecStop=/usr/bin/tiny-ramdisk-ramfs-shutdown.sh
 
 [Install]
 WantedBy=default.target
-# WantedBy=multi-user.target

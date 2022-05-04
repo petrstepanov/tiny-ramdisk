@@ -4,9 +4,6 @@
 mkdir -p /home/petrstepanov/RAMDisk
 
 # Mount ramfs to the RAMDisk folder
-# sudo mount -t ramfs -o size=20m ramfs $HOME/RAMDisk
-# systemd-mount -t ramfs -o size=20m ramfs $HOME/RAMDisk
-# systemd-unmount $HOME/RAMDisk
 mount -t ramfs -o size=20m tmpfs /home/petrstepanov/RAMDisk
 
 # Only for ramfs - couldn't make it work via local 
