@@ -14,6 +14,7 @@ then
 	sudo cp ./src/tiny-ramdisk-ramfs.service /etc/systemd/system/
 
 	# Enable systemd service
-	# systemctl enable tiny-ramdisk-ramfs
-	# systemctl start tiny-ramdisk-ramfs
+	# systemctl daemon-reload
+	systemctl enable tiny-ramdisk-ramfs
+	systemctl start tiny-ramdisk-ramfs
 fi
