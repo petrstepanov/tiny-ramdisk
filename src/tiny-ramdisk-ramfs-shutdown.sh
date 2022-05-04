@@ -7,6 +7,7 @@ chown -R USER:USER HOME/.RAMDisk
 
 # Copy RAMDisk from memory to persistent folder
 # rsync interprets a directory with no trailing slash as `copy this directory`, and a directory with a trailing slash as copy the contents of this directory
+rm -rf HOME/.RAMDisk/*
 rsync -avzh HOME/RAMDisk/ HOME/.RAMDisk
 
 # Unmount the volume
