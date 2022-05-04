@@ -9,3 +9,6 @@ rsync -avzh /home/petrstepanov/RAMDisk/ /home/petrstepanov/.RAMDisk
 
 # Unmount the volume
 systemd-umount /home/petrstepanov/RAMDisk
+
+# Delete the RAMDisk folder
+rm -rf /home/petrstepanov/RAMDisk

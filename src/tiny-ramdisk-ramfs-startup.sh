@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Create RAMDisk folder
-mkdir -p $HOME/RAMDisk
+mkdir -p /home/petrstepanov/RAMDisk
 
 # Mount ramfs to the RAMDisk folder
 # sudo mount -t ramfs -o size=20m ramfs $HOME/RAMDisk
