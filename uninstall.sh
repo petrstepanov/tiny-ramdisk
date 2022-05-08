@@ -4,7 +4,7 @@
 
 # Disable systemd service
 # systemctl --user disable tiny-ramdisk-ramfs-$USER
-systemctl disable tiny-ramdisk-ramfs@$USER
+sudo systemctl disable tiny-ramdisk-ramfs@$USER
 
 # Unmount the volume
 sudo umount $HOME/RAMDisk/
