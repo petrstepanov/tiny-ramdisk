@@ -2,16 +2,15 @@
 
 #. /etc/persist/persist.conf (or source)
 
-# Disable systemd service
-# systemctl --user disable tiny-ramdisk-ramfs-$USER
+# Stop and Disable systemd service
+sudo systemctl stop tiny-ramdisk-ramfs@$USER
 sudo systemctl disable tiny-ramdisk-ramfs@$USER
 
 # Unmount the volume
 sudo umount $HOME/RAMDisk/
 
-# Remove directories (mount point and persistent content)
+# Remove ount point (keep persistent content)
 rm -rf $HOME/RAMDisk
-# rm -rf $HOME/.RAMDisk
 
 # Clean up user scripts
 # rm ${HOME}/.local/bin/tiny-ramdisk*

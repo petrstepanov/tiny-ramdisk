@@ -26,7 +26,7 @@ How to Uninstall
 Execute following command inside the program folder:
 
 ```
-chmod +x ./install.sh && install.sh
+chmod +x ./uninstall.sh && uninstall.sh
 ```
 
 After uninstalling files are still available under `~/.RAMDisk` directory. 
