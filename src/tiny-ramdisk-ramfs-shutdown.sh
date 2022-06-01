@@ -14,7 +14,7 @@ chown -R USER:USER HOME/.RAMDisk
 # --verbose             -v  increase verbosity
 # --delete                  delete extraneous files from dest dirs
 
-rsync --recursive --links --ignore-existing --delete HOME/RAMDisk/ HOME/.RAMDisk
+rsync -avul --delete HOME/RAMDisk/ HOME/.RAMDisk
 
 # Unmount the volume
 umount HOME/RAMDisk
