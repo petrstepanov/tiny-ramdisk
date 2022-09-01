@@ -22,5 +22,5 @@ then
     # rsync -avzh HOME/.RAMDisk/ HOME/RAMDisk
     
     # copy preserving the ownership, mode and timestamps
-    sudo -u USER cp -p -r HOME/.RAMDisk/ HOME/RAMDisk/
+    sudo -u USER cp -p -r HOME/.RAMDisk/. HOME/RAMDisk/
 fi
