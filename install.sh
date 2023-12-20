@@ -8,14 +8,13 @@ RAMDISK_FOLDER=$HOME/RAMDisk
 RAMDISK_PERSISTENT_FOLDER=$HOME/.RAMDisk
 
 # Create folder to mount ramfs
-mkdir -p $RAMDISK_FOLDER
+# mkdir -p $RAMDISK_FOLDER
 
 # Create entry in /etc/fstab
 # RAMDisk is not mounted automatically, user service will mount at login
 # https://forums.linuxmint.com/viewtopic.php?t=123354
 sudo sed -i "/#ramdisk-$USER/d" /etc/fstab
-#echo "none $RAMDISK_FOLDER ramfs noauto,user,size=1M,mode=1777 0 0 #ramdisk-$USER" | sudo tee -a /etc/fstab
-echo "none $RAMDISK_FOLDER ramfs noauto,users,size=1M,mode=1777 0 0 #ramdisk-$USER" | sudo tee -a /etc/fstab
+echo "none $RAMDISK_FOLDER ramfs noauto,users,mode=1777 0 0 #ramdisk-$USER" | sudo tee -a /etc/fstab
 
 # Update fstab
 systemctl daemon-reload

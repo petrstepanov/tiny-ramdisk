@@ -19,4 +19,6 @@ mkdir -p $PERSISTENT_FOLDER
 rsync -avul --delete $RAMDISK_FOLDER/ $RAMDISK_PERSISTENT_FOLDER
 
 # Unmount the volume
+# umount -f $RAMDISK_FOLDER - not works
 umount $RAMDISK_FOLDER
+rm -rf $RAMDISK_FOLDER

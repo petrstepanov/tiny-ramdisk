@@ -17,7 +17,7 @@ rm $SYSTEMD_FOLDER/tiny-ramdisk*
 sudo sed -i "/#ramdisk-$USER/d" /etc/fstab
 
 # Remove ramdisk folder (but keep data in the persistent folder)
-sudo rm -rf $RAMDISK_FOLDER
+# sudo rm -rf $RAMDISK_FOLDER
 
 # Clean up user scripts
 # rm ${HOME}/.local/bin/tiny-ramdisk*
