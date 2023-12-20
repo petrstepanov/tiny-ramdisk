@@ -1,21 +1,24 @@
 #/bin/bash
 
-#. /etc/persist/persist.conf (or source)
+BIN_FOLDER=$HOME/.local/bin
+SYSTEMD_FOLDER=$HOME/.local/share/systemd/user
+RAMDISK_FOLDER=$HOME/RAMDisk
+RAMDISK_PERSISTENT_FOLDER=$HOME/.RAMDisk
 
-# Stop and Disable systemd service
-sudo systemctl stop tiny-ramdisk-ramfs@$USER
-sudo systemctl disable tiny-ramdisk-ramfs@$USER
+# Stop and disable systemd service
+systemctl --user stop tiny-ramdisk-ramfs
+systemctl --user disable tiny-ramdisk-ramfs
+systemctl --user daemon-reload
 
-# Unmount the volume
-sudo umount $HOME/RAMDisk/
+# Remove systemd service file
+rm $SYSTEMD_FOLDER/tiny-ramdisk*
 
-# Remove ount point (keep persistent content)
-rm -rf $HOME/RAMDisk
+# Wipe entry from fstab for cuerrent user
+sudo sed -i "/#ramdisk-$USER/d" /etc/fstab
+
+# Remove ramdisk folder (but keep data in the persistent folder)
+sudo rm -rf $RAMDISK_FOLDER
 
 # Clean up user scripts
 # rm ${HOME}/.local/bin/tiny-ramdisk*
-sudo rm /usr/local/bin/tiny-ramdisk*
-
-# Remove systemd services
-# rm ${HOME}/.config/systemd/user/tiny-ramdisk*
-sudo rm /etc/systemd/system/tiny-ramdisk*
+rm $BIN_FOLDER/tiny-ramdisk*
