@@ -1,13 +1,15 @@
 Tiny RAMDisk
 ============
 
-Trivial persistent RAMDisk implementation for Linux with minimal footprint on your system. Only takes two bash scripts and one service. RAMDisk utilizes `ramfs`.
+Simple persistent RAMDisk implementation for Linux with minimal footprint on your system. Only takes two bash scripts and one service. RAMDisk utilizes `ramfs`.
 
 * Files always reside in RAM and will never interfere with the swap partition.
 * RAMDisk dynamically increases in size as more files are added.
 * Each user on the system can have his own RAMDisk.
 
-One should monitor the amount of data stored on the RAMDisk and make sure it does not exceed available RAM size. Otherwise system will crash.
+RAMDisk functionality can significantly benefit older computers with slower hard drive speeds. Hard Disk (HDD or SSD) read and write operations are moved to the Random Access Memory (RAM). Therefore depending on the hardware setup of a particular machine, user will experience about 10x productivity boost. This is crucial when working with large projects in Integrated Development Environment (IDEs), running various computational analysis and working with large amounts of data.
+
+IMPORTANT: user is responsible to keep track of the amount of data stored on the RAMDisk. Ensure it does not exceed available RAM size. Otherwise system may have unpredictable behavior.
 
 How to Install
 --------------
