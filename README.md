@@ -1,9 +1,8 @@
 Tiny RAMDisk
 ============
 
-<figure>
-  <img src="https://raw.githubusercontent.com/petrstepanov/tiny-ramdisk/main/resources/tiny-ramdisk.png?raw=true" alt="Easy Ram Disk Implementatioon for Linux" />
-</figure>
+![Simple Ram Disk Implementatioon for Linux](./resources/tiny-ramdisk.png#gh-light-mode-only)
+![Simple Ram Disk Implementatioon for Linux](./resources/tiny-ramdisk-dark.png#gh-dark-mode-only)
 
 Simple persistent RAMDisk implementation for Linux with minimal footprint on your system. Only takes two bash scripts and one service. RAMDisk utilizes `ramfs`.
 
