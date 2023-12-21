@@ -1,12 +1,19 @@
-Tiny Ramdisk
+Tiny RAMDisk
 ============
 
-Trivial persistent RAMDisk implementation for Linux with minimal footprint on your system. Only takes two bash scripts and one service. RAMDisk utilizes `ramfs` with following advantages: 
+<figure>
+  <img src="https://raw.githubusercontent.com/petrstepanov/tiny-ramdisk/main/resources/tiny-ramdisk.png?raw=true" alt="Easy Ram Disk Implementatioon for Linux" />
+</figure>
+
+Simple persistent RAMDisk implementation for Linux with minimal footprint on your system. Only takes two bash scripts and one service. RAMDisk utilizes `ramfs`.
 
 * Files always reside in RAM and will never interfere with the swap partition.
 * RAMDisk dynamically increases in size as more files are added.
-  
-However, one should monitor the amount of data stored on the RAMDisk and make sure it does not exceed available RAM size. Otherwise system will crash.
+* Each user on the system can have his own RAMDisk.
+
+RAMDisk functionality can significantly benefit older computers with slower hard drive speeds. Hard Disk (HDD or SSD) read and write operations are moved to the Random Access Memory (RAM). Therefore depending on the hardware setup of a particular machine, user will experience about 10x productivity boost. This is crucial when working with large projects in Integrated Development Environment (IDEs), running various computational analysis and working with large amounts of data.
+
+IMPORTANT: user is responsible to keep track of the amount of data stored on the RAMDisk. Ensure it does not exceed available RAM size. Otherwise system may have unpredictable behavior.
 
 How to Install
 --------------
@@ -18,7 +25,7 @@ git clone https://github.com/petrstepanov/tiny-ramdisk
 chmod +x ./install.sh && install.sh
 ```
 
-The RAM disk is mounted in the `RAMDisk` folder in home folder. Upon logout files are saved to the `~/.RAMDisk` location.
+The RAM disk is mounted in the `RAMDisk` folder in home folder. Upon restart files are saved in the hidden `~/.RAMDisk` folder.
 
 How to Uninstall
 ----------------
@@ -30,5 +37,3 @@ chmod +x ./uninstall.sh && uninstall.sh
 ```
 
 After uninstalling files are still available under `~/.RAMDisk` directory. 
-
-P.S. Feel free to open an Issue.
