@@ -14,17 +14,31 @@ RAMDISK_PERSISTENT_FOLDER=$HOME/.RAMDisk
 # RAMDisk is not mounted automatically, user service will mount at login
 # https://forums.linuxmint.com/viewtopic.php?t=123354
 sudo sed -i "/#ramdisk-$USER/d" /etc/fstab
-echo "none $RAMDISK_FOLDER ramfs noauto,users,mode=1777 0 0 #ramdisk-$USER" | sudo tee -a /etc/fstab
+echo "none $RAMDISK_FOLDER ramfs rw,exec,noauto,user,mode=1777 0 0 #ramdisk-$USER" | sudo tee -a /etc/fstab
 
 # Update fstab
-systemctl daemon-reload
+sudo systemctl daemon-reload
 
 # Copy startup and shutdown scripts
 # Tip: copying, not moving because copying inherits file properties, of its parent directory (ownership, etc).
 # https://osric.com/chris/accidental-developer/2019/01/cp-mv-ownership-attributes/
 mkdir -p $BIN_FOLDER
-cp ./src/tiny-ramdisk-ramfs-startup.sh $BIN_FOLDER
-cp ./src/tiny-ramdisk-ramfs-shutdown.sh $BIN_FOLDER
+
+# Need exec permissions?
+while true; do
+read -p "Do you need executable permissions on the RAMDisk? (yes/no) " yn
+case $yn in 
+	yes ) echo ok;
+	        cp ./src/tiny-ramdisk-ramfs-startup-exec.sh $BIN_FOLDER/tiny-ramdisk-ramfs-startup.sh
+                cp ./src/tiny-ramdisk-ramfs-shutdown-exec.sh $BIN_FOLDER/tiny-ramdisk-ramfs-shutdown.sh
+		break;;
+	no ) echo ok;
+	        cp ./src/tiny-ramdisk-ramfs-startup-noexec.sh $BIN_FOLDER/tiny-ramdisk-ramfs-startup.sh
+                cp ./src/tiny-ramdisk-ramfs-shutdown-noexec.sh $BIN_FOLDER/tiny-ramdisk-ramfs-shutdown.sh
+		break;;
+	* ) echo invalid response;;
+esac
+done
 
 chmod +x $BIN_FOLDER/tiny-ramdisk-ramfs*
 
@@ -36,8 +50,12 @@ mkdir -p $SYSTEMD_FOLDER
 cp ./src/tiny-ramdisk-ramfs.service $SYSTEMD_FOLDER
 
 # Instantiate the service
+systemctl --user stop tiny-ramdisk-ramfs
+systemctl --user disable tiny-ramdisk-ramfs
 systemctl --user daemon-reload
+
 systemctl --user enable tiny-ramdisk-ramfs
+echo Waiting for the service to start...
 systemctl --user start tiny-ramdisk-ramfs
 
 # Open ramdisk folder in Files
