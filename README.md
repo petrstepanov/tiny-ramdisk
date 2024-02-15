@@ -26,6 +26,9 @@ chmod +x ./install.sh && install.sh
 
 The RAM disk is mounted in the `RAMDisk` folder in home folder. Upon restart files are saved in the hidden `~/.RAMDisk` folder.
 
+> [!IMPORTANT]
+> When working with a large amount of files on the RAMDisk, it is reasonable to turn off your desktop environment indexing and search functionality on the drive.
+
 How to Uninstall
 ----------------
 
