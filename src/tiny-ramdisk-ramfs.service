@@ -1,12 +1,13 @@
 [Unit]
 Description=Tiny RAMDisk
+After=graphical-session.target
 
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStartPre=/usr/bin/sleep 5
+# ExecStartPre=/usr/bin/sleep 5
 ExecStart=%h/.local/bin/tiny-ramdisk-ramfs-startup.sh
 ExecStop=%h/.local/bin/tiny-ramdisk-ramfs-shutdown.sh
 
 [Install]
-WantedBy=default.target
+WantedBy=graphical-session.target
