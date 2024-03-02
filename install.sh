@@ -28,15 +28,18 @@ mkdir -p $BIN_FOLDER
 while true; do
 read -p "Do you need executable permissions on the RAMDisk? (yes/no) " yn
 case $yn in 
-	yes ) echo ok;
-	        cp ./src/tiny-ramdisk-ramfs-startup-exec.sh $BIN_FOLDER/tiny-ramdisk-ramfs-startup.sh
-                cp ./src/tiny-ramdisk-ramfs-shutdown-exec.sh $BIN_FOLDER/tiny-ramdisk-ramfs-shutdown.sh
-		break;;
-	no ) echo ok;
-	        cp ./src/tiny-ramdisk-ramfs-startup-noexec.sh $BIN_FOLDER/tiny-ramdisk-ramfs-startup.sh
-                cp ./src/tiny-ramdisk-ramfs-shutdown-noexec.sh $BIN_FOLDER/tiny-ramdisk-ramfs-shutdown.sh
-		break;;
-	* ) echo invalid response;;
+    yes ) echo ok;
+        cp ./src/tiny-ramdisk-ramfs-startup-exec.sh $BIN_FOLDER/tiny-ramdisk-ramfs-startup.sh
+        cp ./src/tiny-ramdisk-ramfs-shutdown-exec.sh $BIN_FOLDER/tiny-ramdisk-ramfs-shutdown.sh
+        sudo cp ./src/com.tiny-ramdisk.policy /usr/share/polkit-1/actions
+        sudo mv /usr/share/polkit-1/actions/com.tiny-ramdisk.policy /usr/share/polkit-1/actions/com.$USER.tiny-ramdisk.policy
+        sudo sed -i "s;%USER%;$USER;g" /usr/share/polkit-1/actions/com.$USER.tiny-ramdisk.policy
+        break;;
+    no ) echo ok;
+        cp ./src/tiny-ramdisk-ramfs-startup-noexec.sh $BIN_FOLDER/tiny-ramdisk-ramfs-startup.sh
+        cp ./src/tiny-ramdisk-ramfs-shutdown-noexec.sh $BIN_FOLDER/tiny-ramdisk-ramfs-shutdown.sh
+        break;;
+    * ) echo invalid response;;
 esac
 done
 
@@ -59,5 +62,5 @@ echo Waiting for the service to start...
 systemctl --user start tiny-ramdisk-ramfs
 
 # Open ramdisk folder in Files
-notify-send "Tiny RAMDisk" "Path to your RAMDisk is $RAMDISK_FOLDER"
+echo "Path to your RAMDisk is $RAMDISK_FOLDER"
 xdg-open $RAMDISK_FOLDER

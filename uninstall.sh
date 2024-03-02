@@ -16,8 +16,11 @@ rm $SYSTEMD_FOLDER/tiny-ramdisk*
 # Wipe entry from fstab for cuerrent user
 sudo sed -i "/#ramdisk-$USER/d" /etc/fstab
 
-# Remove ramdisk folder (but keep data in the persistent folder)
-# sudo rm -rf $RAMDISK_FOLDER
+# Remove Policy file (if exists)
+FILE=/usr/share/polkit-1/actions/com.$USER.tiny-ramdisk.policy
+if [ -f "$FILE" ]; then
+    sudo rm $FILE
+fi
 
 # Clean up user scripts
 # rm ${HOME}/.local/bin/tiny-ramdisk*

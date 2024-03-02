@@ -19,5 +19,6 @@ mkdir -p $PERSISTENT_FOLDER
 rsync -avul --delete $RAMDISK_FOLDER/ $RAMDISK_PERSISTENT_FOLDER
 
 # Unmount the volume
-# umount -f $RAMDISK_FOLDER - not works
-pkexec sh -c "chown root:root $RAMDISK_FOLDER && umount -f $RAMDISK_FOLDER && rm -rf $RAMDISK_FOLDER"
+pkexec chown root:root $RAMDISK_FOLDER
+pkexec umount -f $RAMDISK_FOLDER
+pkexec rm -rf $RAMDISK_FOLDER
