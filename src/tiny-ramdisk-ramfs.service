@@ -3,9 +3,10 @@ Description=Tiny RAMDisk
 
 [Service]
 Type=oneshot
-RemainAfterExit=true
+RemainAfterExit=yes
+ExecStartPre=/usr/bin/sleep 5
 ExecStart=%h/.local/bin/tiny-ramdisk-ramfs-startup.sh
 ExecStop=%h/.local/bin/tiny-ramdisk-ramfs-shutdown.sh
 
 [Install]
-WantedBy=default.target
+WantedBy=multi-user.target

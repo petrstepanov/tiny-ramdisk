@@ -8,7 +8,7 @@ RAMDISK_PERSISTENT_FOLDER=$HOME/.RAMDisk
 mkdir -p $RAMDISK_FOLDER
 
 # Wait till shell loads
-sleep 8s
+# sleep 8s
 
 # Mount the RAMDisk (no execute permissions)
 mount $RAMDISK_FOLDER

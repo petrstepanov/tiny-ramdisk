@@ -8,7 +8,7 @@ RAMDISK_PERSISTENT_FOLDER=$HOME/.RAMDisk
 mkdir -p $RAMDISK_FOLDER
 
 # Wait till shell loads
-sleep 8s
+# sleep 8s
 
 # Mount the RAMDisk and change permissions
 # pkexec sh -c "mount -o exec $RAMDISK_FOLDER && chown $USER:$USER $RAMDISK_FOLDER"
@@ -24,7 +24,7 @@ echo "Authorization"
 echo $auth
 
 if [ $auth = 0 ]; then
-    # Copy persistent content to RAMDisk 
+    # Copy persistent content to RAMDisk
     # Check if persistent folder exists
     if [ -d "$RAMDISK_PERSISTENT_FOLDER" ]
     then
