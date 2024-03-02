@@ -9,4 +9,4 @@ ExecStart=%h/.local/bin/tiny-ramdisk-ramfs-startup.sh
 ExecStop=%h/.local/bin/tiny-ramdisk-ramfs-shutdown.sh
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
