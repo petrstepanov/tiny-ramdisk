@@ -14,6 +14,10 @@ RAMDisk functionality can significantly benefit older computers with slower hard
 
 IMPORTANT: user is responsible to keep track of the amount of data stored on the RAMDisk. Ensure it does not exceed available RAM size. Otherwise system may have unpredictable behavior.
 
+Prerequisites
+--------------
+Any GNU/Linux distribution with `systemd` suite and `PolicyKit` component.
+
 How to Install
 --------------
 
