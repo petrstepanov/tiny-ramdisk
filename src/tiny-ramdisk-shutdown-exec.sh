@@ -3,10 +3,11 @@
 # Define variables
 RAMDISK_FOLDER=$HOME/RAMDisk
 RAMDISK_PERSISTENT_FOLDER=$HOME/.RAMDisk
+SYMBOLIC_ICON_FOLDER=$HOME/.local/share/icons/hicolor/symbolic/apps
 
 NS_ARGS=(--icon tiny-ramdisk-symbolic --app-name "Tiny RAMDisk")
-NS_WAIT_ARGS=(--hint "string:image-path:tiny-ramdisk-wait-symbolic" --category transfer)
-NS_DONE_ARGS=(--hint "string:image-path:tiny-ramdisk-done-symbolic" --category transfer.complete)
+NS_WAIT_ARGS=(--hint "string:image-path:${SYMBOLIC_ICON_FOLDER}/tiny-ramdisk-wait-symbolic.svg" --category transfer)
+NS_DONE_ARGS=(--hint "string:image-path:${SYMBOLIC_ICON_FOLDER}/tiny-ramdisk-done-symbolic.svg" --category transfer.complete)
 
 # Create folder to save RAMDisk content
 mkdir -p $RAMDISK_PERSISTENT_FOLDER

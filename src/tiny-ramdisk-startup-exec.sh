@@ -3,14 +3,15 @@
 # Define variables
 RAMDISK_FOLDER=$HOME/RAMDisk
 RAMDISK_PERSISTENT_FOLDER=$HOME/.RAMDisk
+SYMBOLIC_ICON_FOLDER=$HOME/.local/share/icons/hicolor/symbolic/apps
 
 # Man page for notify-send: https://specifications.freedesktop.org/notification-spec/notification-spec-latest.html
 #                           https://man.archlinux.org/man/notify-send.1.en
 # Pass command args with quotes as bash variable: https://superuser.com/a/360986/206515
 NS_ARGS=(--icon tiny-ramdisk-symbolic --app-name "Tiny RAMDisk")
-NS_WAIT_ARGS=(--hint "string:image-path:tiny-ramdisk-wait-symbolic" --category transfer)
-NS_DONE_ARGS=(--hint "string:image-path:tiny-ramdisk-done-symbolic" --category transfer.complete)
-NS_FAIL_ARGS=(--hint "string:image-path:tiny-ramdisk-fail-symbolic" --category transfer.error)
+NS_WAIT_ARGS=(--hint "string:image-path:${SYMBOLIC_ICON_FOLDER}/tiny-ramdisk-wait-symbolic.svg" --category transfer)
+NS_DONE_ARGS=(--hint "string:image-path:${SYMBOLIC_ICON_FOLDER}/tiny-ramdisk-done-symbolic.svg" --category transfer.complete)
+NS_FAIL_ARGS=(--hint "string:image-path:${SYMBOLIC_ICON_FOLDER}/tiny-ramdisk-fail-symbolic.svg" --category transfer.error)
 
 # Create RAMDisk folder (if not exists)
 mkdir -p $RAMDISK_FOLDER
