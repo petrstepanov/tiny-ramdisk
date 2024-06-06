@@ -21,10 +21,6 @@ pkexec chown $USER:$USER $RAMDISK_FOLDER
 
 # Check pkexec status: https://linux.die.net/man/1/pkexec
 auth=$?
-
-echo "Authorization"
-echo $auth
-
 if [ $auth = 0 ]; then
     # Copy persistent content to RAMDisk
     # Check if persistent folder exists
@@ -39,7 +35,7 @@ if [ $auth = 0 ]; then
             cp -a $RAMDISK_PERSISTENT_FOLDER/* $RAMDISK_FOLDER/
             # Success notification
             notify-send "${NS_ARGS[@]}" "${NS_DONE_ARGS[@]}" --replace-id ${ID} "Done!" "RAMDisk is ready to use."
-            # Success notification with action. In GNOME if no action was selected - it freezed the process
+            # Success notification with action. In GNOME if no action was selected - it freezes the process
             # ACTION=$(notify-send "${NS_ARGS[@]}" "${NS_DONE_ARGS[@]}" --replace-id ${ID} --action "open=Show Files" --wait --expire-time 4000 "Done!" "RAMDisk is ready to use.")
             # case $ACTION in
             #     open)

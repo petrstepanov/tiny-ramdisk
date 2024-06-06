@@ -20,7 +20,6 @@ mkdir -p $RAMDISK_PERSISTENT_FOLDER
 # --verbose             -v  increase verbosity
 # --delete                  delete extraneous files from dest dirs
 
-# Send 
 ID=$(notify-send "${NS_ARGS[@]}" "${NS_WAIT_ARGS[@]}" --print-id "Please wait..." "Synchronizing RAMDisk files to persistent location.")
 
 rsync -avul --delete $RAMDISK_FOLDER/ $RAMDISK_PERSISTENT_FOLDER
