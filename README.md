@@ -1,5 +1,5 @@
-Tiny RAMDisk
-============
+TinyRAMDisk
+===========
 
 <img src="./resources/tiny-ramdisk.svg" width="256" />
 
@@ -14,10 +14,10 @@ Possible scenarios for the RAM disk can be:
 * Working with large project in Integrated Development Environments (IDEs).
 * Running computational analysis of numerous small size files.
 
-Why Choose Tiny RAMDisk?
+Why Choose TinyRAMDisk?
 ------------------------
 
-Simplicity is often the key. Tiny RAMDisk has a minimal footprint on the system. Program consists from a few bash scripts and systemd service. Below please find some of the program features:
+Simplicity is often the key. TinyRAMDisk has a minimal footprint on the system. Program consists from a few bash scripts and systemd service. Below please find some of the program features:
 
 * **Persistent**. Files are saved back and restored from the hard drive each time user logs off. 
 * **High speeds**. Data only resides in RAM (`ramfs`, not `tmpfs`) and will never end up on the `swap` partition.
