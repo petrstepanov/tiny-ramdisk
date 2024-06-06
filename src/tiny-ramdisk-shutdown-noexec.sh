@@ -4,9 +4,9 @@
 RAMDISK_FOLDER=$HOME/RAMDisk
 RAMDISK_PERSISTENT_FOLDER=$HOME/.RAMDisk
 
-NS_ARGS=(--icon com.petrstepanov.TinyRAMDisk-symbolic --app-name "Tiny RAMDisk")
-NS_WAIT_ARGS=(--hint "string:image-path:face-yawn-symbolic" --category transfer)
-NS_DONE_ARGS=(--hint "string:image-path:face-smile-big-symbolic" --category transfer.complete)
+NS_ARGS=(--icon tiny-ramdisk-symbolic --app-name "Tiny RAMDisk")
+NS_WAIT_ARGS=(--hint "string:image-path:tiny-ramdisk-wait-symbolic" --category transfer)
+NS_DONE_ARGS=(--hint "string:image-path:tiny-ramdisk-done-symbolic" --category transfer.complete)
 
 # Create folder to save RAMDisk content
 mkdir -p $RAMDISK_PERSISTENT_FOLDER

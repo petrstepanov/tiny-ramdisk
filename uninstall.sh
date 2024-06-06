@@ -20,7 +20,7 @@ rm $SYSTEMD_FOLDER/tiny-ramdisk*
 # Remove icons
 echo "INFO: Removing app icons."
 rm $ICON_FOLDER/tiny-ramdisk.svg
-rm $SYMBOLIC_ICON_FOLDER/tiny-ramdisk-symbolic.svg
+rm $SYMBOLIC_ICON_FOLDER/tiny-ramdisk*symbolic.svg
 xdg-desktop-menu forceupdate
 
 # Wipe entry from fstab for cuerrent user

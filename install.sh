@@ -55,7 +55,7 @@ echo "INFO: Installing application icons."
 mkdir -p $ICON_FOLDER
 mkdir -p $SYMBOLIC_ICON_FOLDER
 cp ./resources/tiny-ramdisk.svg $ICON_FOLDER
-cp ./resources/tiny-ramdisk-symbolic.svg $SYMBOLIC_ICON_FOLDER
+cp ./resources/tiny-ramdisk*symbolic.svg $SYMBOLIC_ICON_FOLDER
 xdg-desktop-menu forceupdate
 
 # Create folder for user systemd scripts
