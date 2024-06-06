@@ -1,10 +1,10 @@
-Tiny RAM Disk
-=============
+Tiny RAMDisk
+============
 
 ![Simple RAM Disk Implementation for Linux](./resources/com.petrstepanov.TinyRAMDisk.png)
 
 What is a RAM Disk?
------------------
+-------------------
 
 RAM drive functionality can significantly benefit older computers with slow hard drive speeds. Hard Disk (HDD or SSD) read and write operations are moved to the Random Access Memory (RAM). Therefore depending on the particular computer hardware, user may experience up to 10x productivity boost. 
 
@@ -14,10 +14,10 @@ Possible scenarios for the RAM disk can be:
 * Working with large project in Integrated Development Environments (IDEs).
 * Running computational analysis of numerous small size files.
 
-Why Choose Tiny RAM Disk?
--------------------------
+Why Choose Tiny RAMDisk?
+------------------------
 
-Simplicity is often the key. Tiny RAM disk has a minimal footprint on the system. Program consists from a few bash scripts and systemd service. Below please find some of the program features:
+Simplicity is often the key. Tiny RAMDisk has a minimal footprint on the system. Program consists from a few bash scripts and systemd service. Below please find some of the program features:
 
 * **Persistent**. Files are saved back and restored from the hard drive each time user logs off. 
 * **High speeds**. Data only resides in RAM (`ramfs`, not `tmpfs`) and will never end up on the `swap` partition.
