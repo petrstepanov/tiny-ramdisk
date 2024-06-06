@@ -1,7 +1,7 @@
 Tiny RAMDisk
 ============
 
-<img src="./resources/com.petrstepanov.TinyRAMDisk.svg" width="256" />
+<img src="./resources/tiny-ramdisk.svg" width="256" />
 
 What is a RAM Disk?
 -------------------
