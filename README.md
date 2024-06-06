@@ -45,7 +45,7 @@ chmod +x ./install.sh && install.sh
 The RAM disk is mounted in the `RAMDisk` folder in home folder. On logout or restart files are saved in the hidden `~/.RAMDisk` folder.
 
 > [!TIP]
-> When working with a large amount of files on the RAM drive, it is reasonable to turn off your desktop environment indexing and search functionality on the RAM drive.
+> When working with a large amount of files on the RAM drive, it is reasonable to turn off your desktop environment indexing and search functionality on the RAM drive. In GNOME desktop environment this will be under Settings → Search → Search Locations...
 
 How to Uninstall
 ----------------
