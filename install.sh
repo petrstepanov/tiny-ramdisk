@@ -1,6 +1,7 @@
 #/bin/bash
 
 # TODO: parameterise the RAMDisk folder name via template systemd service @
+# TODO: use reverse dns naming com.github.petrstepanov.tiny-ramdisk to avoid name clashes
 BIN_FOLDER=$HOME/.local/bin
 SYSTEMD_FOLDER=$HOME/.local/share/systemd/user
 ICON_FOLDER=$HOME/.local/share/icons/hicolor/scalable/apps
@@ -23,35 +24,38 @@ mkdir -p $BIN_FOLDER
 
 # Check which RAMDisk scripts to install - with or without executable permissions on the drive?
 while true; do
-read -p "QUESTION: Do you need executable permissions on the RAMDisk? (yes/no) " yn
-case $yn in 
+read -p "QUESTION: Do you need executable permissions on the RAMDisk? (yes/no) " YN
+case $YN in 
     yes )
         echo -e "INFO: Ok. Copying startup and shutdown scripts."
-        cp ./src/tiny-ramdisk-ramfs-startup-exec.sh $BIN_FOLDER/tiny-ramdisk-ramfs-startup.sh
-        cp ./src/tiny-ramdisk-ramfs-shutdown-exec.sh $BIN_FOLDER/tiny-ramdisk-ramfs-shutdown.sh
+        cp ./src/tiny-ramdisk-startup-exec.sh $BIN_FOLDER/tiny-ramdisk-startup.sh
+        cp ./src/tiny-ramdisk-shutdown-exec.sh $BIN_FOLDER/tiny-ramdisk-shutdown.sh
         echo -e "INFO: Installing the policy file."
-        sudo cp ./src/com.tiny-ramdisk.policy /usr/share/polkit-1/actions
-        sudo mv /usr/share/polkit-1/actions/com.tiny-ramdisk.policy /usr/share/polkit-1/actions/com.$USER.tiny-ramdisk.policy
-        sudo sed -i "s;%USER%;$USER;g" /usr/share/polkit-1/actions/com.$USER.tiny-ramdisk.policy
+        sudo cp ./src/tiny-ramdisk.policy /usr/share/polkit-1/actions
+        sudo mv /usr/share/polkit-1/actions/tiny-ramdisk.policy /usr/share/polkit-1/actions/tiny-ramdisk.$USER.policy
+        sudo sed -i "s;%USER%;$USER;g" /usr/share/polkit-1/actions/tiny-ramdisk.$USER.policy
         break;;
     no )
         echo -e "INFO: Ok. Copying startup and shutdown scripts."
-        cp ./src/tiny-ramdisk-ramfs-startup-noexec.sh $BIN_FOLDER/tiny-ramdisk-ramfs-startup.sh
-        cp ./src/tiny-ramdisk-ramfs-shutdown-noexec.sh $BIN_FOLDER/tiny-ramdisk-ramfs-shutdown.sh
+        cp ./src/tiny-ramdisk-startup-noexec.sh $BIN_FOLDER/tiny-ramdisk-startup.sh
+        cp ./src/tiny-ramdisk-shutdown-noexec.sh $BIN_FOLDER/tiny-ramdisk-shutdown.sh
         break;;
-    * ) echo invalid response;;
+    * ) 
+        echo invalid response
+        exit 1
+        break;;
 esac
 done
 
 # Add executable permissions to RAMDisk scripts
-chmod +x $BIN_FOLDER/tiny-ramdisk-ramfs*
+chmod +x $BIN_FOLDER/tiny-ramdisk-*
 
 # Install icons for notifications and pkexec dialog (if needed)
 echo "INFO: Installing application icons."
 mkdir -p $ICON_FOLDER
 mkdir -p $SYMBOLIC_ICON_FOLDER
-cp ./resources/com.petrstepanov.TinyRAMDisk.svg $ICON_FOLDER
-cp ./resources/com.petrstepanov.TinyRAMDisk-symbolic.svg $SYMBOLIC_ICON_FOLDER
+cp ./resources/tiny-ramdisk.svg $ICON_FOLDER
+cp ./resources/tiny-ramdisk-symbolic.svg $SYMBOLIC_ICON_FOLDER
 xdg-desktop-menu forceupdate
 
 # Create folder for user systemd scripts
@@ -60,17 +64,20 @@ mkdir -p $SYSTEMD_FOLDER
 
 # Copy systemd services
 # https://wiki.archlinux.org/title/systemd/User#Writing_user_units
-cp ./src/tiny-ramdisk-ramfs.service $SYSTEMD_FOLDER
+cp ./src/tiny-ramdisk.service $SYSTEMD_FOLDER
 
 # Instantiate the service
-systemctl --user stop tiny-ramdisk-ramfs
-systemctl --user disable tiny-ramdisk-ramfs
+systemctl --user stop tiny-ramdisk
+systemctl --user disable tiny-ramdisk
 systemctl --user daemon-reload
 
-systemctl --user enable tiny-ramdisk-ramfs
+systemctl --user enable tiny-ramdisk
 echo "INFO: Starting the RAMDisk service..."
-systemctl --user start tiny-ramdisk-ramfs
+systemctl --user start tiny-ramdisk
 
 # Show RAMDisk folder in Files application
 echo "INFO: Done! Path to your RAMDisk is ${RAMDISK_FOLDER}"
 xdg-open $RAMDISK_FOLDER
+
+# Success exit
+exit 0

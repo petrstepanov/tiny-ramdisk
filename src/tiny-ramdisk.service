@@ -5,9 +5,9 @@ After=graphical-session.target
 [Service]
 Type=oneshot
 RemainAfterExit=yes
+ExecStart=%h/.local/bin/tiny-ramdisk-startup.sh
+ExecStop=%h/.local/bin/tiny-ramdisk-shutdown.sh
 # ExecStartPre=/usr/bin/sleep 5
-ExecStart=%h/.local/bin/tiny-ramdisk-ramfs-startup.sh
-ExecStop=%h/.local/bin/tiny-ramdisk-ramfs-shutdown.sh
 
 [Install]
 WantedBy=graphical-session.target

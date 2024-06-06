@@ -20,7 +20,6 @@ mkdir -p $RAMDISK_PERSISTENT_FOLDER
 # --verbose             -v  increase verbosity
 # --delete                  delete extraneous files from dest dirs
 
-# Send 
 ID=$(notify-send "${NS_ARGS[@]}" "${NS_WAIT_ARGS[@]}" --print-id "Please wait..." "Synchronizing RAMDisk files to persistent location.")
 
 rsync -avul --delete $RAMDISK_FOLDER/ $RAMDISK_PERSISTENT_FOLDER
@@ -28,5 +27,9 @@ rsync -avul --delete $RAMDISK_FOLDER/ $RAMDISK_PERSISTENT_FOLDER
 notify-send "${NS_ARGS[@]}" "${NS_DONE_ARGS[@]}" --replace-id ${ID}  "Done!" "Files are saved to persistent location."
 
 # Unmount the volume with lazy option because `Target is Busy`
-umount --lazy $RAMDISK_FOLDER
-rm -rf $RAMDISK_FOLDER
+pkexec chown root:root $RAMDISK_FOLDER
+pkexec umount --lazy $RAMDISK_FOLDER
+pkexec rm -rf $RAMDISK_FOLDER
+
+# Success exit
+exit 0

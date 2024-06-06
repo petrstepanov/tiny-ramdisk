@@ -15,9 +15,6 @@ NS_FAIL_ARGS=(--hint "string:image-path:face-sad-symbolic" --category transfer.e
 # Create RAMDisk folder (if not exists)
 mkdir -p $RAMDISK_FOLDER
 
-# Wait till shell loads
-# sleep 8s
-
 # Mount the RAMDisk (no execute permissions)
 mount $RAMDISK_FOLDER
 
@@ -42,3 +39,6 @@ then
         # esac
     fi
 fi
+
+# Success exit
+exit 0

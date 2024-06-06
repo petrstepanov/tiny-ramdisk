@@ -15,11 +15,7 @@ NS_FAIL_ARGS=(--hint "string:image-path:face-sad-symbolic" --category transfer.e
 # Create RAMDisk folder (if not exists)
 mkdir -p $RAMDISK_FOLDER
 
-# Wait till shell loads
-# sleep 8s
-
 # Mount the RAMDisk and change permissions
-# pkexec sh -c "mount -o exec $RAMDISK_FOLDER && chown $USER:$USER $RAMDISK_FOLDER"
 pkexec mount -o exec $RAMDISK_FOLDER
 pkexec chown $USER:$USER $RAMDISK_FOLDER
 
@@ -57,3 +53,6 @@ elif [ $auth = 126 ]; then
     # Error notification
     notify-send "${NS_ARGS[@]}" "${NS_FAIL_ARGS[@]}" "Oops!" "Error copying persistent files to RAM."
 fi
+
+# Success exit
+exit 0
