@@ -3,8 +3,8 @@ Tiny RAMDisk
 
 ![Simple RAM Disk Implementation for Linux](./resources/com.petrstepanov.TinyRAMDisk.png)
 
-What is this?
--------------
+What is RAM Disk?
+-----------------
 
 RAMDisk functionality can significantly benefit older computers with slow hard drive speeds. Hard Disk (HDD or SSD) read and write operations are moved to the Random Access Memory (RAM). Therefore depending on the particular computer hardware, user may experience up to 10x productivity boost. 
 
@@ -43,7 +43,7 @@ chmod +x ./install.sh && install.sh
 
 The RAM disk is mounted in the `RAMDisk` folder in home folder. On logout or restart files are saved in the hidden `~/.RAMDisk` folder.
 
-> [!IMPORTANT]
+> [!TIP]
 > When working with a large amount of files on the RAMDisk, it is reasonable to turn off your desktop environment indexing and search functionality on the RAMDisk drive.
 
 How to Uninstall
