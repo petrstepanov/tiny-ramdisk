@@ -1,12 +1,12 @@
-Tiny RAMDisk
-============
+Tiny RAM Disk `Persistent`
+==========================
 
 ![Simple RAM Disk Implementation for Linux](./resources/com.petrstepanov.TinyRAMDisk.png)
 
-What is RAM Disk?
+What is a RAM Disk?
 -----------------
 
-RAMDisk functionality can significantly benefit older computers with slow hard drive speeds. Hard Disk (HDD or SSD) read and write operations are moved to the Random Access Memory (RAM). Therefore depending on the particular computer hardware, user may experience up to 10x productivity boost. 
+RAM drive functionality can significantly benefit older computers with slow hard drive speeds. Hard Disk (HDD or SSD) read and write operations are moved to the Random Access Memory (RAM). Therefore depending on the particular computer hardware, user may experience up to 10x productivity boost. 
 
 High file operation speeds are crucial when user puts heavy I/O on the filesystem. RAMDisk not only provides better read and write speeds, but also takes the stress off the hard drive which increases its life expectancy.
 
