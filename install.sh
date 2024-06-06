@@ -1,9 +1,10 @@
 #/bin/bash
 
 # TODO: parameterise the RAMDisk folder name via template systemd service @
-
 BIN_FOLDER=$HOME/.local/bin
 SYSTEMD_FOLDER=$HOME/.local/share/systemd/user
+ICON_FOLDER=$HOME/.local/share/icons/hicolor/scalable/apps
+SYMBOLIC_ICON_FOLDER=$HOME/.local/share/icons/hicolor/symbolic/apps
 RAMDISK_FOLDER=$HOME/RAMDisk
 RAMDISK_PERSISTENT_FOLDER=$HOME/.RAMDisk
 
@@ -44,6 +45,13 @@ esac
 done
 
 chmod +x $BIN_FOLDER/tiny-ramdisk-ramfs*
+
+# Install icons for notifications and pkexec dialog (if needed)
+mkdir -p $ICON_FOLDER
+mkdir -p $SYMBOLIC_ICON_FOLDER
+cp ./resources/com.petrstepanov.TinyRAMDisk.svg $ICON_FOLDER
+cp ./resources/com.petrstepanov.TinyRAMDisk-symbolic.svg $SYMBOLIC_ICON_FOLDER
+xdg-desktop-menu forceupdate
 
 # Create folder for user systemd scripts
 mkdir -p $SYSTEMD_FOLDER

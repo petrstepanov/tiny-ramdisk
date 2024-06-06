@@ -7,7 +7,7 @@
   <action id="com.%USER%.tiny-ramdisk.mount">
     <description>Tiny RAMDisk</description>
     <message>Authentication is required to mount RAMDisk with execute privilege</message>
-    <icon_name>tiny-ramdisk</icon_name>
+    <icon_name>com.petrstepanov.TinyRAMDisk</icon_name>
     <defaults>
       <allow_any>yes</allow_any>
       <allow_inactive>yes</allow_inactive>
@@ -19,10 +19,10 @@
     <annotate key="org.freedesktop.policykit.exec.argv3">/home/%USER%/RAMDisk</annotate>
   </action>
 
-  <action id="com.%USER%.tiny-ramdisk.chown">
+  <action id="com.%USER%.tiny-ramdisk.chown-user">
     <description>Tiny RAMDisk</description>
     <message>Authentication is required to change RAMDisk files ownership</message>
-    <icon_name>tiny-ramdisk</icon_name>
+    <icon_name>com.petrstepanov.TinyRAMDisk</icon_name>
     <defaults>
       <allow_any>yes</allow_any>
       <allow_inactive>yes</allow_inactive>
@@ -33,10 +33,10 @@
     <annotate key="org.freedesktop.policykit.exec.argv2">/home/%USER%/RAMDisk/</annotate>
   </action>
 
-  <action id="com.%USER%.tiny-ramdisk.uchown">
+  <action id="com.%USER%.tiny-ramdisk.chown-root">
     <description>Tiny RAMDisk</description>
     <message>Authentication is required to chown RAMDisk to super user</message>
-    <icon_name>tiny-ramdisk</icon_name>
+    <icon_name>com.petrstepanov.TinyRAMDisk</icon_name>
     <defaults>
       <allow_any>yes</allow_any>
       <allow_inactive>yes</allow_inactive>
@@ -50,21 +50,21 @@
   <action id="com.%USER%.tiny-ramdisk.umount">
     <description>Tiny RAMDisk</description>
     <message>Authentication is required to unmount RAMDisk as super user</message>
-    <icon_name>tiny-ramdisk</icon_name>
+    <icon_name>com.petrstepanov.TinyRAMDisk</icon_name>
     <defaults>
       <allow_any>yes</allow_any>
       <allow_inactive>yes</allow_inactive>
       <allow_active>yes</allow_active>
     </defaults>
     <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/umount</annotate>
-    <annotate key="org.freedesktop.policykit.exec.argv1">-f</annotate>
+    <annotate key="org.freedesktop.policykit.exec.argv1">--lazy</annotate>
     <annotate key="org.freedesktop.policykit.exec.argv2">/home/%USER%/RAMDisk</annotate>
   </action>
 
   <action id="com.%USER%.tiny-ramdisk.rm">
     <description>Tiny RAMDisk</description>
     <message>Authentication is required to delete RAMDisk folder</message>
-    <icon_name>tiny-ramdisk</icon_name>
+    <icon_name>com.petrstepanov.TinyRAMDisk</icon_name>
     <defaults>
       <allow_any>yes</allow_any>
       <allow_inactive>yes</allow_inactive>
@@ -74,6 +74,5 @@
     <annotate key="org.freedesktop.policykit.exec.argv1">-rf</annotate>
     <annotate key="org.freedesktop.policykit.exec.argv2">/home/%USER%/RAMDisk</annotate>
   </action>
-
 
 </policyconfig>

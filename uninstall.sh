@@ -1,7 +1,10 @@
 #/bin/bash
 
+# Define variables
 BIN_FOLDER=$HOME/.local/bin
 SYSTEMD_FOLDER=$HOME/.local/share/systemd/user
+ICON_FOLDER=$HOME/.local/share/icons/hicolor/scalable/apps
+SYMBOLIC_ICON_FOLDER=$HOME/.local/share/icons/hicolor/symbolic/apps
 RAMDISK_FOLDER=$HOME/RAMDisk
 RAMDISK_PERSISTENT_FOLDER=$HOME/.RAMDisk
 
@@ -9,6 +12,11 @@ RAMDISK_PERSISTENT_FOLDER=$HOME/.RAMDisk
 systemctl --user stop tiny-ramdisk-ramfs
 systemctl --user disable tiny-ramdisk-ramfs
 systemctl --user daemon-reload
+
+# Remove icons
+rm $ICON_FOLDER/com.petrstepanov.TinyRAMDisk.svg
+rm $SYMBOLIC_ICON_FOLDER/com.petrstepanov.TinyRAMDisk-symbolic.svg
+xdg-desktop-menu forceupdate
 
 # Remove systemd service file
 rm $SYSTEMD_FOLDER/tiny-ramdisk*

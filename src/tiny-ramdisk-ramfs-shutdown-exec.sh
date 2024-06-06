@@ -5,7 +5,7 @@ RAMDISK_FOLDER=$HOME/RAMDisk
 RAMDISK_PERSISTENT_FOLDER=$HOME/.RAMDisk
 
 # Create folder to save RAMDisk content
-mkdir -p $PERSISTENT_FOLDER
+mkdir -p $RAMDISK_PERSISTENT_FOLDER
 
 # Copy files from ramdisk (memory) to persistent folder
 # rsync interprets a directory with no trailing slash as `copy this directory`, and a directory with a trailing slash as copy the contents of this directory
@@ -18,7 +18,7 @@ mkdir -p $PERSISTENT_FOLDER
 
 rsync -avul --delete $RAMDISK_FOLDER/ $RAMDISK_PERSISTENT_FOLDER
 
-# Unmount the volume
+# Unmount the volume with lazy option because `Target is Busy`
 pkexec chown root:root $RAMDISK_FOLDER
-pkexec umount -f $RAMDISK_FOLDER
+pkexec umount --lazy $RAMDISK_FOLDER
 pkexec rm -rf $RAMDISK_FOLDER
