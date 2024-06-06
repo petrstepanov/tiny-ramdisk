@@ -22,7 +22,7 @@ Simplicity is often the key. Tiny RAMDisk has a minimal footprint on the system.
 * **Persistent**. Files are saved back and restored from the hard drive each time user logs off. 
 * **High speeds**. Data only resides in RAM (`ramfs`, not `tmpfs`) and will never end up on the `swap` partition.
 * **Dynamic size**. RAM disk partition dynamically increases in size as more files are added.
-* **User friendly**. Each user on the system can install and use his instance of RAM disk.
+* **Multi user**. Each user on the system can install and use his instance of RAM disk.
 
 > [!IMPORTANT]
 > User is responsible to keep track of the amount of data stored on the RAM disk. Ensure it does not exceed available RAM size. Otherwise system may have unpredictable behavior.
