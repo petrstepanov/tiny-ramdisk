@@ -1,7 +1,7 @@
 Tiny RAMDisk
 ============
 
-![Simple RAM Disk Implementation for Linux](./resources/com.petrstepanov.TinyRAMDisk.png)
+<img src="./resources/com.petrstepanov.TinyRAMDisk.svg" width="256" />
 
 What is a RAM Disk?
 -------------------
