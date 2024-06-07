@@ -25,7 +25,7 @@ mkdir -p $BIN_FOLDER
 # Check which RAMDisk scripts to install - with or without executable permissions on the drive?
 while true; do
 read -p "QUESTION: Do you need executable permissions on the RAMDisk? (yes/no) " YN
-case $YN in 
+case $YN in
     yes )
         echo -e "INFO: Ok. Copying startup and shutdown scripts."
         cp ./src/tiny-ramdisk-startup-exec.sh $BIN_FOLDER/tiny-ramdisk-startup.sh
@@ -40,7 +40,7 @@ case $YN in
         cp ./src/tiny-ramdisk-startup-noexec.sh $BIN_FOLDER/tiny-ramdisk-startup.sh
         cp ./src/tiny-ramdisk-shutdown-noexec.sh $BIN_FOLDER/tiny-ramdisk-shutdown.sh
         break;;
-    * ) 
+    * )
         echo invalid response
         exit 1
         break;;
@@ -70,13 +70,14 @@ mkdir -p $SYSTEMD_FOLDER
 # https://wiki.archlinux.org/title/systemd/User#Writing_user_units
 cp ./src/tiny-ramdisk.service $SYSTEMD_FOLDER
 
-# Instantiate the service
+# Stop the service (if running)
 systemctl --user stop tiny-ramdisk
 systemctl --user disable tiny-ramdisk
 systemctl --user daemon-reload
 
-systemctl --user enable tiny-ramdisk
+# Start the service
 echo "INFO: Starting the RAMDisk service..."
+systemctl --user enable tiny-ramdisk
 systemctl --user start tiny-ramdisk
 
 # Show RAMDisk folder in Files application
