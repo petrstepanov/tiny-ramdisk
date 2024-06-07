@@ -50,13 +50,16 @@ done
 # Add executable permissions to RAMDisk scripts
 chmod +x $BIN_FOLDER/tiny-ramdisk-*
 
-# Install icons for notifications and pkexec dialog (if needed)
+# Install application icon for pkexec dialog (may be needed)
 echo "INFO: Installing application icons."
 mkdir -p $ICON_FOLDER
-mkdir -p $SYMBOLIC_ICON_FOLDER
 cp ./resources/tiny-ramdisk.svg $ICON_FOLDER
-cp ./resources/tiny-ramdisk*symbolic.svg $SYMBOLIC_ICON_FOLDER
 xdg-desktop-menu forceupdate
+
+# Install symbolic icons for notifications
+mkdir -p $SYMBOLIC_ICON_FOLDER
+cp ./resources/tiny-ramdisk*symbolic.svg $SYMBOLIC_ICON_FOLDER
+gtk-update-icon-cache --ignore-theme-index $HOME/.local/share/icons/hicolor/
 
 # Create folder for user systemd scripts
 echo "INFO: Installing systemd service."

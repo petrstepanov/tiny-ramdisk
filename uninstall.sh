@@ -17,11 +17,12 @@ systemctl --user daemon-reload
 # Remove systemd service file
 rm $SYSTEMD_FOLDER/tiny-ramdisk*
 
-# Remove icons
+# Remove icons and update icon cache
 echo "INFO: Removing app icons."
 rm $ICON_FOLDER/tiny-ramdisk.svg
 rm $SYMBOLIC_ICON_FOLDER/tiny-ramdisk*symbolic.svg
 xdg-desktop-menu forceupdate
+gtk-update-icon-cache --ignore-theme-index $HOME/.local/share/icons/hicolor/
 
 # Wipe entry from fstab for cuerrent user
 echo "INFO: Removing the fstab entry."
