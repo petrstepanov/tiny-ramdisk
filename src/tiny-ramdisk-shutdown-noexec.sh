@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Define variables
-RAMDISK_FOLDER=$HOME/RAMDisk
-RAMDISK_PERSISTENT_FOLDER=$HOME/.RAMDisk
-SYMBOLIC_ICON_FOLDER=$HOME/.local/share/icons/hicolor/symbolic/apps
+RAMDISK_FOLDER="${HOME}/RAMDisk"
+RAMDISK_PERSISTENT_FOLDER="${HOME}/.RAMDisk"
+SYMBOLIC_ICON_FOLDER="${HOME}/.local/share/icons/hicolor/symbolic/apps"
 
 NS_ARGS=(--icon tiny-ramdisk-symbolic --app-name "Tiny RAMDisk")
 NS_WAIT_ARGS=(--hint "string:image-path:${SYMBOLIC_ICON_FOLDER}/tiny-ramdisk-wait-symbolic.svg" --category transfer)

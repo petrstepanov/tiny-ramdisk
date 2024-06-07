@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Define variables
-RAMDISK_FOLDER=$HOME/RAMDisk
-RAMDISK_PERSISTENT_FOLDER=$HOME/.RAMDisk
-SYMBOLIC_ICON_FOLDER=$HOME/.local/share/icons/hicolor/symbolic/apps
+RAMDISK_FOLDER="${HOME}/RAMDisk"
+RAMDISK_PERSISTENT_FOLDER="${HOME}/.RAMDisk"
+SYMBOLIC_ICON_FOLDER="${HOME}/.local/share/icons/hicolor/symbolic/apps"
 
 # Man page for notify-send: https://specifications.freedesktop.org/notification-spec/notification-spec-latest.html
 #                           https://man.archlinux.org/man/notify-send.1.en
