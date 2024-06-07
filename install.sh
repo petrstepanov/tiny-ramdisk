@@ -51,6 +51,7 @@ done
 chmod +x $BIN_FOLDER/tiny-ramdisk-*
 
 # Install application icon for pkexec dialog (may be needed)
+# All icons are installed to "hicolor" fallback icon theme folder: https://askubuntu.com/a/300155/925071
 echo "INFO: Installing application icons."
 mkdir -p $ICON_FOLDER
 cp ./resources/tiny-ramdisk.svg $ICON_FOLDER
