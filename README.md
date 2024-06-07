@@ -1,7 +1,8 @@
 TinyRAMDisk
 ===========
 
-<img src="./resources/tiny-ramdisk.svg" width="256" />
+![TinyRAMDisk RAM Drive OpenGraph Image](./resources/og-tiny-ramdisk-light.png#gh-light-mode-only)
+![TinyRAMDisk RAM Drive OpenGraph Image - Dark Theme](./resources/og-tiny-ramdisk-dark.png#gh-dark-mode-only)
 
 What is a RAM Disk?
 -------------------
