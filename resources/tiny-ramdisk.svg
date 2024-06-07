@@ -35,7 +35,7 @@
 <rect x="26" y="94" width="20" height="20" rx="3" transform="rotate(-90 26 94)" fill="url(#paint3_linear_5_422)"/>
 </g>
 <g filter="url(#filter11_d_5_422)">
-<path d="M47 48C45.3431 48 44 46.6569 44 45L44 15C44 13.3431 45.3431 12 47 12L95 12C96.6569 12 98 13.3431 98 15L98 45C98 46.6569 96.6569 48 95 48L47 48Z" fill="url(#paint4_linear_5_422)"/>
+<path d="M47 48C45.3431 48 44 46.6569 44 45L44 12L98 12L98 45C98 46.6569 96.6569 48 95 48L47 48Z" fill="url(#paint4_linear_5_422)"/>
 </g>
 <g filter="url(#filter12_i_5_422)">
 <path d="M80 44C78.8954 44 78 43.1046 78 42L78 16L92 16L92 42C92 43.1046 91.1046 44 90 44L80 44Z" fill="#2EC27E"/>
