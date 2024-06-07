@@ -27,7 +27,7 @@ if [ $auth = 0 ]; then
     # Check if persistent folder exists
     if [ -d "$RAMDISK_PERSISTENT_FOLDER" ]
     then
-        # Check if permanent folder contains some files
+        # Check if persistent folder contains some files
         if [ "$(ls -A $RAMDISK_PERSISTENT_FOLDER)" ]; then
             # Startup notification
             notify-send "${NS_ARGS[@]}" "${NS_WAIT_ARGS[@]}" "Please wait..." "Copying files to memory (RAM)."
@@ -35,19 +35,19 @@ if [ $auth = 0 ]; then
             # ID=$(notify-send "${NS_ARGS[@]}" "${NS_WAIT_ARGS[@]}" --print-id "Please wait..." "Copying files to memory (RAM).")
             # Copy preserving the ownership, mode and timestamps
             cp -a $RAMDISK_PERSISTENT_FOLDER/* $RAMDISK_FOLDER/
-            # Success notification
-            notify-send "${NS_ARGS[@]}" "${NS_DONE_ARGS[@]}" "Done!" "RAMDisk is ready to use."
-            # Success notification replacing startup one. Problem: glitches,
-            # notify-send "${NS_ARGS[@]}" "${NS_DONE_ARGS[@]}" --replace-id ${ID} "Done!" "RAMDisk is ready to use."
-            # Success notification with action. In GNOME if no action was selected - it freezes the process
-            # ACTION=$(notify-send "${NS_ARGS[@]}" "${NS_DONE_ARGS[@]}" --replace-id ${ID} --action "open=Show Files" --wait --expire-time 4000 "Done!" "RAMDisk is ready to use.")
-            # case $ACTION in
-            #     open)
-            #         xdg-open $RAMDISK_FOLDER;;
-            #     *)
-            #         ;;
-            # esac
         fi
+        # Success notification
+        notify-send "${NS_ARGS[@]}" "${NS_DONE_ARGS[@]}" "Hey there!" "RAMDisk is ready to use."
+        # Success notification replacing startup one. Problem: glitches,
+        # notify-send "${NS_ARGS[@]}" "${NS_DONE_ARGS[@]}" --replace-id ${ID} "Done!" "RAMDisk is ready to use."
+        # Success notification with action. In GNOME if no action was selected - it freezes the process
+        # ACTION=$(notify-send "${NS_ARGS[@]}" "${NS_DONE_ARGS[@]}" --replace-id ${ID} --action "open=Show Files" --wait --expire-time 4000 "Done!" "RAMDisk is ready to use.")
+        # case $ACTION in
+        #     open)
+        #         xdg-open $RAMDISK_FOLDER;;
+        #     *)
+        #         ;;
+        # esac
     fi
 elif [ $auth = 126 ]; then
     # Error notification
