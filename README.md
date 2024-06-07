@@ -28,14 +28,10 @@ Simplicity is often the key. TinyRAMDisk has a minimal footprint on the system. 
 > [!IMPORTANT]
 > User is responsible to keep track of the amount of data stored on the RAM disk. Ensure it does not exceed available RAM size. Otherwise system may have unpredictable behavior.
 
-Prerequisites
---------------
-Any GNU/Linux distribution with `systemd` suite and `PolicyKit` component.
-
 How to Install
 --------------
 
-Prerequisites. Ensure that `rsync`, `systemd`, `notify-send` are installed on your computer (provided by default with most distributions). Next, open Terminal emulator and enter following commands:
+**Prerequisites**. Any GNU/Linux distribution with `systemd` suite and `PolicyKit` component. Ensure that `rsync`, `systemd`, and `notify-send` are installed on your computer (provided by default with most distributions). Next, open Terminal emulator and enter following commands:
 
 ```
 git clone https://github.com/petrstepanov/tiny-ramdisk
